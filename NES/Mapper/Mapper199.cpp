@@ -217,7 +217,8 @@ void	Mapper199::SetBank_PPU()
 
 void	Mapper199::SaveState( LPBYTE p )
 {
-	for( INT i = 0; i < 8; i++ ) {
+	INT i;
+	for( i = 0; i < 8; i++ ) {
 		p[i] = reg[i];
 	}
 	for( i = 8; i < 12; i++ ) {
@@ -239,7 +240,8 @@ void	Mapper199::SaveState( LPBYTE p )
 
 void	Mapper199::LoadState( LPBYTE p )
 {
-	for( INT i = 0; i < 8; i++ ) {
+	INT i;
+	for( i = 0; i < 8; i++ ) {
 		reg[i] = p[i];
 	}
 	for( i = 8; i < 12; i++ ) {

@@ -101,7 +101,7 @@ INT WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 
 	// 二重起動の防止
 	hMutex = ::CreateMutex( NULL, FALSE, VIRTUANES_MUTEX );
-	if( ::GetLastError() == ERROR_ALREADY_EXISTS ) {
+	if(0 && ::GetLastError() == ERROR_ALREADY_EXISTS ) {
 		::CloseHandle( hMutex );
 		if( Config.general.bDoubleExecute ) {
 //			HWND	hWnd = ::FindWindow( VIRTUANES_WNDCLASS, NULL );
@@ -166,7 +166,7 @@ INT WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 		::PostMessage( CApp::GetHWnd(), WM_VNS_COMMANDLINE, 0, (LPARAM)lpCmdLine );
 	}
 
-	MSG	msg;
+	MSG	msg = { 0 };
 	BOOL	bRet;
 	while( (bRet = ::GetMessage( &msg, NULL, 0, 0 )) != 0 ) {
 		// エラー？

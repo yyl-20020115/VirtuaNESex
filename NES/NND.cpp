@@ -14,6 +14,13 @@
 
 #include "nnd.h"
 
+unsigned short _outp(unsigned short a, unsigned short d) {
+	return d; 
+}
+unsigned char _inp(unsigned short a) {
+	return 0;
+}
+
 #define inb(a) _inp((unsigned short)a)
 #define outb(a, d) _outp((unsigned short)a, (unsigned short)d)
 
